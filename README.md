@@ -6,7 +6,7 @@ This repo contains bindings for the [NVENC library](https://developer.nvidia.com
 
 The bindings are [pre generated](https://legionlabs.com/blog/rust_ffi_finding/) using bindgen with some extra regexes for some macros and static declarations.
 
-This crate also have exposes bindings for a very small subset of Nvidia's CUDA driver library, only the necessary functions/structures/enum to interact with the encoder as a straightforward way to load a stream of surfaces and encode them and to interop with Vulkan is covered.
+This crate also exposes bindings for a very small subset of Nvidia's CUDA driver library, only the necessary functions/structures/enum to interact with the encoder as a straightforward way to load a stream of surfaces and encode them and to interop with Vulkan is covered.
 
 ## Regenerating bindings
 
