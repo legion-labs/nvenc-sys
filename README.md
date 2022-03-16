@@ -1,4 +1,4 @@
-[![CI](https://github.com/legion-labs/nvenc-sys/actions/workflows/ci.yml/badge.svg)](https://github.com/legion-labs/amf-rs/actions/workflows/ci.yml)
+[![CI](https://github.com/legion-labs/nvenc-sys/actions/workflows/ci.yml/badge.svg)](https://github.com/legion-labs/nvenc-sys/actions/workflows/ci.yml)
 
 # NVENC Rust FFI bindings
 
