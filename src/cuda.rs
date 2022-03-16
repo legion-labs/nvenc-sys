@@ -217,6 +217,7 @@ mod validation {
     const _CU_MEMCPY_2D_UNALIGNED: CuMemcpy2DUnalignedFn = cuMemcpy2DUnaligned_v2;
     const _CU_MEMCPY_2D_ASYNC: CuMemcpy2DAsyncFn = cuMemcpy2DAsync_v2;
     const _CU_MEMCPY_D_TO_H: CuMemcpyDtoHFn = cuMemcpyDtoH_v2;
+    const _CU_IMPORT_EXTERNAL_MEMORY: CuImportExternalMemoryFn = cuImportExternalMemory;
     const _CU_IMPORT_EXTERNAL_SEMAPHORE: CuImportExternalSemaphoreFn = cuImportExternalSemaphore;
     const _CU_EXTERNAL_MEMORY_GET_MAPPED_BUFFER: CuExternalMemoryGetMappedBufferFn =
         cuExternalMemoryGetMappedBuffer;
