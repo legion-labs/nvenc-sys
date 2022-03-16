@@ -1,0 +1,27 @@
+[package]
+name = "nvenc-sys"
+description = "Unsafe FFI bindings for Nvidia Encoding library"
+version = "0.1.0"
+authors = ["Legion Labs <devs@legionlabs.com>"]
+license = "MIT OR Apache-2.0"
+edition = "2018"
+repository = "https://github.com/legion-labs/nvenc-rs"
+readme = "README.md"
+keywords = ["encoding", "decoding", "nvidia", "video"]
+categories = ["external-ffi-bindings", "video"]
+build = "build.rs"
+
+# See more key
+
+[features]
+cuda = []
+use-bindgen = ["bindgen", "regex"]
+
+[dev-dependencies]
+libloading = "0.7"
+
+[build-dependencies]
+regex = { version = "1.5.5", optional = true }
+bindgen = { version = "0.59", default-features = false, features = [
+    "runtime",
+], optional = true }

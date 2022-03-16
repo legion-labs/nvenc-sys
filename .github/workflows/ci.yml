@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  lint:
+    name: Running code checks
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check for formatting
+        run: cargo fmt --all -- --check
+
+      - name: Run clippy with no default features enabled
+        run: cargo clippy --all-targets -- -D warnings
+
+      - name: Run clippy with cuda feature
+        run: cargo clippy --all-targets --features=cuda -- -D warnings
+
+      - name: Run clippy with use-bindgen feature
+        run: cargo clippy --all-targets --features=use-bindgen -- -D warnings
+
+      - name: Validate docs
+        run: cargo doc --workspace
+
+  test:
+    name: Running tests
+    needs: lint
+    strategy:
+      matrix:
+        os: ["ubuntu-20.04", "windows-2022"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run tests
+        run: cargo test
+
+      - name: Run tests with cuda feature
+        run: cargo test --features=cuda
+
+      - name: Run tests with use-bindgen feature
+        run: cargo test --features=use-bindgen
