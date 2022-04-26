@@ -9,10 +9,6 @@ include!(concat!(env!("OUT_DIR"), "/nvenc.rs"));
 #[cfg(not(feature = "use-bindgen"))]
 include!("./bindgen/nvenc.rs");
 
-pub const NV_ENC_GET_LAST_ERROR_STRING_FN_NAME: &[u8] = b"NvEncGetLastErrorString\0";
-pub type NvEncGetLastErrorStringFn =
-    unsafe extern "C" fn(encoder: *mut ::std::os::raw::c_void) -> *const ::std::os::raw::c_char;
-
 pub const NV_ENCODE_API_GET_MAX_SUPPORTED_VERSION_FN_NAME: &[u8] =
     b"NvEncodeAPIGetMaxSupportedVersion\0";
 pub type NvEncodeApiGetMaxSupportedVersionFn =
@@ -26,11 +22,10 @@ pub type NvEncodeApiCreateInstanceFn =
 pub const NVENC_DLL_NAME: &str = "nvEncodeAPI64.dll";
 
 #[cfg(not(windows))]
-pub const NVENC_DLL_NAME: &str = "libnvidia-encode.so";
+pub const NVENC_DLL_NAME: &str = "libnvidia-encode.so.1";
 
 mod validation {
     use super::*;
-    const _NV_ENC_GET_LAST_ERROR_STRING: NvEncGetLastErrorStringFn = NvEncGetLastErrorString;
     const _NV_ENCODE_API_GET_MAX_SUPPORTED_VERSION: NvEncodeApiGetMaxSupportedVersionFn =
         NvEncodeAPIGetMaxSupportedVersion;
     const _NV_ENCODE_API_CREATE_INSTANCE: NvEncodeApiCreateInstanceFn = NvEncodeAPICreateInstance;

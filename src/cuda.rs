@@ -162,7 +162,7 @@ pub type CuSignalExternalSemaphoresAsyncFn = unsafe extern "C" fn(
 pub const CUDA_DLL_NAME: &str = "nvcuda.dll";
 
 #[cfg(not(windows))]
-pub const CUDA_DLL_NAME: &str = "libcuda.so";
+pub const CUDA_DLL_NAME: &str = "libcuda.so.1";
 
 #[cfg(test)]
 mod tests {
